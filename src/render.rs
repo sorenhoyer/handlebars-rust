@@ -4,7 +4,11 @@ use std::fmt;
 use std::io::Write;
 use std::io::Error as IOError;
 use std::rc::Rc;
+
+#[cfg(not(feature = "serde_type"))]
 use serialize::json::Json;
+#[cfg(feature = "serde_type")]
+use serde_json::value::Value as Json;
 
 use template::{Template, TemplateElement, Parameter, HelperTemplate};
 use template::TemplateElement::{RawString, Expression, Comment, HelperBlock, HTMLExpression, HelperExpression};
