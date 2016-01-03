@@ -86,8 +86,8 @@ mod serde_example {
 
     pub fn make_data () -> BTreeMap<String, Value> {
         let mut data = BTreeMap::new();
-
-        data.insert("year".to_string(), value::to_value("2015"));
+        let s: &str = "2015";
+        data.insert("year".to_string(), value::to_value(&s));
 
         let teams = vec![ Team { name: "Jiangsu Sainty".to_string(),
                                  pts: 43u16 },
